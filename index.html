@@ -3,45 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoSmokeQuest - Брось курить и копи Драконьи Когти!</title>
+    <title>NoSmokeQuest - Брось курить через игру!</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>🐉 NoSmokeQuest</h1>
-            <p>Зарабатывай Драконьи Когти — победи Никотинового Дракона!</p>
+            <h1>🚭 NoSmokeQuest</h1>
+            <p>Замени сигарету на игру — спаси своего дракона!</p>
         </header>
-        
+
         <main class="main">
-            <!-- Блок прогресса -->
             <div class="progress-container game-card">
                 <h2>Твой прогресс: <span id="days">0</span> дней без курения</h2>
                 <div class="progress-bar">
                     <div class="progress" id="progress"></div>
                 </div>
-                <p id="motivation">Начни копить Драконьи Когти!</p>
+                <p id="motivation"></p>
             </div>
             
-            <!-- Блок валюты -->
             <div class="game-card">
                 <h3>💰 Драконьи Когти: <span id="dk-amount">0</span> ДК</h3>
                 <button class="btn" onclick="buyPowerUp()">Купить силу (+5 ДК)</button>
             </div>
             
-            <!-- Мини-игры -->
             <div class="game-card">
                 <h3>🎮 Мини-игры</h3>
-                <button class="btn" onclick="startGame('clicker')">Сигаретный кликер</button>
-                <button class="btn" onclick="startGame('dragon')">Дыхание дракона</button>
-            </div>
-            
-            <!-- Награды -->
-            <div class="game-card">
-                <h3>🏆 Награды</h3>
-                <div id="rewards"></div>
-                <button class="btn" onclick="addDay()">+1 день без курения</button>
+                <button class="btn" onclick="startClickerGame()">Сигаретный кликер</button>
+                <button class="btn" onclick="startDragonGame()">Дыхание дракона</button>
             </div>
         </main>
     </div>
