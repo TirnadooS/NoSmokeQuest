@@ -1,3 +1,76 @@
+/* Основные стили */
+:root {
+    --primary: #00ff88;
+    --secondary: #00b7ff;
+    --dark: #0a0a0a;
+    --accent: #ff4d4d;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--dark);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: linear-gradient(90deg, var(--accent), #f9cb28);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.game-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: var(--primary);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+/* Стили для игрового экрана */
 .game-screen {
     position: fixed;
     top: 0;
@@ -9,22 +82,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: 1000;
 }
 
 #cigarette {
-    background: linear-gradient(90deg, #fff, #ddd);
+    width: 60px;
+    height: 120px;
+    background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
     border-radius: 3px;
     position: relative;
+    cursor: pointer;
+    margin: 30px 0;
+    transition: transform 0.2s;
 }
 
 #cigarette::before {
     content: '';
     position: absolute;
     top: 20%;
-    left: -10px;
-    width: 10px;
+    left: -12px;
+    width: 12px;
     height: 60%;
-    background: linear-gradient(90deg, #8B4513, #A0522D);
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
     border-radius: 3px 0 0 3px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    #cigarette {
+        width: 40px;
+        height: 80px;
+    }
 }
