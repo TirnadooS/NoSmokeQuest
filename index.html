@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoSmokeQuest - Брось курить через игру!</title>
+    <style>
+        /* CSS стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            padding: 20px;
+            text-align: center;
+        }
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .game-btn {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00b7ff);
+            border-radius: 10px;
+            width: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚭 NoSmokeQuest</h1>
+        <p>Замени сигарету на игру — спаси своего дракона!</p>
+    </div>
+
+    <div class="game-container">
+        <h2>Твой прогресс: <span id="days">0</span> дней без курения</h2>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <button class="game-btn" onclick="startGame()">🎮 Играть сейчас</button>
+        <button class="game-btn" onclick="addDay()">+1 день без курения</button>
+        <p id="motivation"></p>
+    </div>
+
+    <script>
+        // JS логика
+        let daysWithoutSmoking = 0;
+        const motivations = [
+            "Ты сэкономил 500 рублей!",
+            "Легкие уже чистятся...",
+            "Ты — машина! Продолжай!"
+        ];
+
+        function startGame() {
+            alert("Здесь будет мини-игра! Пока что ты молодец, что не куришь!");
+        }
+
+        function addDay() {
+            daysWithoutSmoking++;
+            document.getElementById('days').textContent = daysWithoutSmoking;
+            document.getElementById('progress').style.width = (daysWithoutSmoking * 5) + '%';
+            
+            // Рандомная мотивация
+            const randomMotivation = motivations[Math.floor(Math.random() * motivations.length)];
+            document.getElementById('motivation').textContent = randomMotivation;
+            
+            // Сохраняем прогресс в LocalStorage
+            localStorage.setItem('noSmokeDays', daysWithoutSmoking);
+        }
+
+        // Загружаем сохраненный прогресс
+        window.onload = function() {
+            const savedDays = localStorage.getItem('noSmokeDays');
+            if (savedDays) {
+                daysWithoutSmoking = parseInt(savedDays);
+                document.getElementById('days').textContent = daysWithoutSmoking;
+                document.getElementById('progress').style.width = (daysWithoutSmoking * 5) + '%';
+            }
+        };
+    </script>
+</body>
+</html>
